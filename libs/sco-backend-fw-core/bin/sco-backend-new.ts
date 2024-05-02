@@ -6,31 +6,41 @@ const path = require('path');
 const { execSync } = require('child_process');
 const readline = require('readline');
 
-/* const BUILD_FILES: string[] = [
-    "package.json",
-    "package-lock.json",
-    "sco-backend-fw-initial.zip",
-    "sco-backend-new.d.ts",
-    "sco-backend-new.js",
-    "sco-backend-new.js.map",
-    "node_modules",
-]; */
-
-async function main() {
+async function main(): Promise<void> {
     console.log(`Sco Backend Framework starting new proyect...`);
-    
-    /* Check Build Files And Delete Others */
-    //deleteNotBuildFiles('./');
+
+    /* Get Curret File Execution Path */
+    let currentPath: string = __dirname;
+    if (currentPath.charAt(currentPath.length-1) == '/') {
+        currentPath = currentPath.substring(0, currentPath.length-1);
+    }
 
     /* Unzip Initial Proyect  */
-    if (fs.existsSync('./sco-backend-fw-initial.zip')) {
-        await unzipDirectory('./sco-backend-fw-initial.zip', `./`);
+    if (fs.existsSync(`${currentPath}/sco-backend-fw-initial.zip`)) {
+        await unzipDirectory(`${currentPath}/sco-backend-fw-initial.zip`, `${currentPath}/`);
     }
 
     /* Set New Proyect Name  */
     const projectDir: string = process.argv[2] || 'sco-backend-new';
-    fs.cpSync('./sco-backend-fw-initial', `./${projectDir}`, {recursive: true});
-    fs.rmSync('./sco-backend-fw-initial', { recursive: true, force: true });
+
+    /* Check If Proyect Name Already Exists */
+    if (fs.existsSync(`./${projectDir}`)) {
+        console.log(`Sco Backend Framework Proyect '${projectDir}' already exists.`);
+        const wsProyect: boolean = formatInputParameterToBoolean(
+            await getUserInputParameter(`Do you want to delete current and create new proyect called '${projectDir}'? S/N \n`)
+        );
+
+        if (wsProyect == false) {
+            console.log(`Sco Backend Framework Proyect exited...`);
+            return;
+        }
+
+        fs.rmSync(`./${projectDir}`, { recursive: true, force: true });
+    }
+
+    /* Move New Proyect */
+    fs.cpSync(`${currentPath}/sco-backend-fw-initial`, `./${projectDir}`, {recursive: true, force: true});
+    fs.rmSync(`${currentPath}/sco-backend-fw-initial`, { recursive: true, force: true });
 
     /* Delete New Proyect Git Folder If Exists  */
     if (fs.existsSync(`./${projectDir}/.git`)) {
@@ -181,6 +191,11 @@ async function main() {
         }
     }
 
+    // If All params are false, no core folder needed
+    if (wsParam == false && mongoParam == false && sharedParam == false) {
+        fs.rmSync(`./${projectDir}/src/core`, { recursive: true, force: true });
+    }
+
     /* Get User Install Dependencies Response */
     if (formatInputParameterToBoolean(await getUserInputParameter('Do you want to install the dependencies of the new project? S/N \n'))) {
         execSync(`cd ./${projectDir} && npm i`, { stdio: 'inherit' });
@@ -241,18 +256,3 @@ async function unzipDirectory(inputFilePath: string, outputDirectory: string): P
     const zip = new AdmZip (inputFilePath);
     zip.extractAllTo(outputDirectory, true);
 };
-
-/* function deleteNotBuildFiles(folder: string): void {
-    fs.readdirSync(folder).forEach(function(element) {
-        const src = path.join(folder, element);
-        const stat = fs.statSync(src);
-        const existBuildFile = BUILD_FILES.find(f => f == src);
-        if (!existBuildFile) {
-            if (stat.isFile()) {
-                fs.unlinkSync(src);
-            } else if (stat.isDirectory()) {
-                fs.rmSync(src, { recursive: true, force: true });
-            }
-        }
-    });
-} */
