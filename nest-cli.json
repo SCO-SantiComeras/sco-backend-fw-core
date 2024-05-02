@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "projects": {
+    "sco-backend-fw-core": {
+      "type": "library",
+      "root": "libs/sco-backend-fw-core",
+      "entryFile": "index",
+      "sourceRoot": "libs/sco-backend-fw-core/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/sco-backend-fw-core/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
