@@ -1,10 +1,12 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const fsExtra = require('fs-extra');
 const path = require('path');
 const { execSync } = require('child_process');
 const readline = require('readline');
 
-const BUILD_FILES: string[] = [
+/* const BUILD_FILES: string[] = [
     "package.json",
     "package-lock.json",
     "sco-backend-fw-initial.zip",
@@ -12,18 +14,13 @@ const BUILD_FILES: string[] = [
     "sco-backend-new.js",
     "sco-backend-new.js.map",
     "node_modules",
-];
+]; */
 
 async function main() {
     console.log(`Sco Backend Framework starting new proyect...`);
-
-    /* Install Dependencies If Not Exists */
-    if (!fs.existsSync('./node_modules')) {
-        execSync(`npm i`, { stdio: false });
-    }
     
     /* Check Build Files And Delete Others */
-    deleteNotBuildFiles('./');
+    //deleteNotBuildFiles('./');
 
     /* Unzip Initial Proyect  */
     if (fs.existsSync('./sco-backend-fw-initial.zip')) {
@@ -245,7 +242,7 @@ async function unzipDirectory(inputFilePath: string, outputDirectory: string): P
     zip.extractAllTo(outputDirectory, true);
 };
 
-function deleteNotBuildFiles(folder: string): void {
+/* function deleteNotBuildFiles(folder: string): void {
     fs.readdirSync(folder).forEach(function(element) {
         const src = path.join(folder, element);
         const stat = fs.statSync(src);
@@ -258,4 +255,4 @@ function deleteNotBuildFiles(folder: string): void {
             }
         }
     });
-}
+} */

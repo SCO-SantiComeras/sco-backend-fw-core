@@ -1,9 +1,12 @@
 {
   "name": "sco-backend-fw-core",
-  "version": "10.1.1",
+  "version": "10.1.5",
   "author": "Santiago Comeras Oteo",
   "description": "SCO Backend Framework Core",
   "main": "index.js",
+  "bin": {
+    "sco-backend-new": "./bin/sco-backend-new.js"
+  },
   "repository": {},
   "dependencies": {
     "@nestjs/common": "^10.0.0",

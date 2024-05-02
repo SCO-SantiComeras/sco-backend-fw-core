@@ -8,7 +8,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "build-library": "rm -rf ./dist && npm run prebuild && tsc && cp ./libs/sco-backend-fw-core/package.json ./dist/libs/sco-backend-fw-core && cp ./libs/sco-backend-fw-core/README.md ./dist/libs/sco-backend-fw-core && chmod -R 777 ./dist && cp -r ./dist/libs/sco-backend-fw-core/src/* ./dist/libs/sco-backend-fw-core/ && cp -r ./libs/sco-backend-fw-core/src/sco-backend-fw-core/bin/sco-backend-fw-initial.zip ./dist/libs/sco-backend-fw-core/sco-backend-fw-core/bin && cp ./libs/sco-backend-fw-core/package.json ./dist/libs/sco-backend-fw-core/sco-backend-fw-core/bin && rm -rf ./dist/src && rm -rf ./dist/test && rm -rf dist/libs/sco-backend-fw-core/src",
+    "build-library": "rm -rf ./dist && npm run prebuild && tsc && cp ./libs/sco-backend-fw-core/package.json ./dist/libs/sco-backend-fw-core && cp ./libs/sco-backend-fw-core/README.md ./dist/libs/sco-backend-fw-core && chmod -R 777 ./dist && cp -r ./dist/libs/sco-backend-fw-core/src/* ./dist/libs/sco-backend-fw-core/ && cp -r ./libs/sco-backend-fw-core/bin/sco-backend-fw-initial.zip ./dist/libs/sco-backend-fw-core/bin && rm -rf ./dist/src && rm -rf ./dist/test && rm -rf dist/libs/sco-backend-fw-core/src",
     "start-library": "npm link ./libs/sco-backend-fw-core/ && nest start --watch",
     "install-local-library": "npm i ./dist/libs/sco-backend-fw-core",
     "publish-library": "npm run build-library && npm publish dist/libs/sco-backend-fw-core",
