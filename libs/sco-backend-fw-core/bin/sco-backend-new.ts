@@ -196,6 +196,12 @@ async function main(): Promise<void> {
         fs.rmSync(`./${projectDir}/src/core`, { recursive: true, force: true });
     }
 
+    /* Get User Add Develop Library Scripts Response */
+    if (!formatInputParameterToBoolean(await getUserInputParameter('Do you want to include the develop library scripts in the new project? S/N \n'))) {
+        fs.unlinkSync(`./${projectDir}/copy-library.sh`);
+        fs.unlinkSync(`./${projectDir}/restore-library.sh`);
+    }
+
     /* Get User Install Dependencies Response */
     if (formatInputParameterToBoolean(await getUserInputParameter('Do you want to install the dependencies of the new project? S/N \n'))) {
         execSync(`cd ./${projectDir} && npm i`, { stdio: 'inherit' });
