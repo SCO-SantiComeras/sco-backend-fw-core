@@ -1,6 +1,6 @@
 {
   "name": "sco-backend-fw-core",
-  "version": "10.1.12",
+  "version": "10.1.13",
   "author": "Santiago Comeras Oteo",
   "description": "SCO Backend Framework Core",
   "main": "index.js",
