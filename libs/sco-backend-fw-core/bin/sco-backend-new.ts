@@ -21,7 +21,7 @@ async function main(): Promise<void> {
     }
 
     /* Set New Proyect Name  */
-    const projectDir: string = process.argv[2] || 'sco-backend-new';
+    const projectDir: string = process.argv[2] || 'sco-backend-fw-new';
 
     /* Check If Proyect Name Already Exists */
     if (fs.existsSync(`./${projectDir}`)) {
