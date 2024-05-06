@@ -1,200 +1,79 @@
-# SCO - Nestjs Utilities
+<p align="center">
+  <img src="https://scoapps.es/img/sco-backend-fw-logo.png" width="400" alt="ScoBackendFw-Logo" />
+</p>
 
-Nestjs Utilities es una librería de Node.js desarrollada para el framework Nestjs y publicada en NPM. 
-Esta librería proporciona una serie de funciones y servicios útiles para simplificar el desarrollo de aplicaciones web con Nestjs,.
-También, la librería provee de una sólida base de autentificación JWT con una gestión de usuarios.
+<h1><p align="center">Sco Backend FW Core</p></h1>
 
-# Instalación
+<p align="center">
+  A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> and <a href="http://nestjs.com" target="_blank">Nest</a> framework for building efficient, scalable and no reload changes server-side applications.
+</p>
+
+## Description
+
+[ScoBackendFwCore](https://github.com/SCO-SantiComeras/sco-backend-fw) framework TypeScript features export. 
+You can create your new proyect start template from Sco Backend Fw Core, you only need to install global dependency and create your new proyect
+
+## Installation
+
+Install ScoBackendFwCore global dependency
 <pre>
-npm i sco-backend-fw-core
+npm i -g sco-backend-fw-core
 </pre>
 
-# Características principales
-
-- Authmodule (Modulo de autentificación de usuarios)
-  - AuthRepository
-  - AuthService
-  - AuthController
-  - AuthConfig
-  - LoginDto
-  - TokenDto
-  - JwtPayload
-  - AuthStrategy
-- Constants
-  - HTTP_ERROR_CONSTANTS
-  - VALIDATION_ERROR_CONSTANTS
-- EmailerModule
-  - EmailerRepository
-  - EmailerService
-  - EmailerController
-  - EmailerControllerJwt
-  - EmailerConfig
-  - MessageDto
-- ExcelModule
-  - ExcelRepository
-  - ExcelService
-  - ExcelController
-  - ExcelControllerJwt
-  - ExcelConfig
-  - ExcelDto
-  - ExcelExtensionEnum
-- LoggerModule (Tratamiento de ficheros de logs)
-  - LoggerService
-- MicroserviceConnectionModule
-  - MicroserviceConnectionService
-  - MicroserviceConnectionConfig
-  - MicroserviceToBackend
-- Middlewares
-  - PublicMiddleware
-- MongoDbModule
-  - MongoDbService
-  - MongoDbConfig
-  - MONGODB_CONSTANTS
-- PaginationModule
-  - PaginationService
-  - PaginationDto
-  - PAGINATION_CONSTANTS
-- PermissionsModule (Permisos de los roles)
-  - PermissionsRepository
-  - PermissionsService
-  - PermissionsController
-  - PermissionsControllerJwt
-  - PermissionsConfig
-  - PERMISSIONS_CONSTANTS
-  - PermissionDto
-  - IPermission
-  - PERMISSIONS_SCHEMA
-- PopulateModule
-  - PopulateService
-  - PopualteConfig
-- RolesModule (Roles de los usuarios)
-  - RolesRepository
-  - RolesService
-  - RolesController
-  - RolesControllerJwt
-  - RolesConfig
-  - ROLES_CONSTANTS
-  - RoleDto
-  - IRole
-  - ROLES_SCHEMA
-- SftpModule
-  - SftpRepository
-  - SftpService
-  - SftpController
-  - SftpControllerJwt
-  - SftpConfig
-  - SftpRequestDto
-- SharedModule
-  - BcryptService
-  - ControllerService
-  - TranslateService
-    - TRANSLATE_CONSTANTS
-- UsersModule
-  - UsersRepository
-  - UsersService
-  - UsersController
-  - UsersControllerJwt
-  - UsersConfig
-  - USERS_CONSTANTS
-  - UserDto
-  - UpdateUserDto
-  - IUser
-  - USERS_SCHEMA
-- WebsocketModule
-  - WebsocketGateway
-  - WebsocketConfig
-  - WebsocketAdapter
-  - WEBSOCKET_EVENTS
-
-# Parámetros de configuración
+Create your new ScoBackendFw proyect
 <pre>
-LoggerModule,
-PaginationModule,
-SharedModule,
-MongoDbModule.register({
-  ip: 'localhost',
-  port: 27017,
-  database: 'sco-backend-fw-core'
-}),
-WebsocketModule.register({
-  port: 8070,
-  origin: 'http://localhost, http://localhost:8070',
-}),
-MicroserviceConnectionModule.register({
-  enabled: false,
-  host: '0.0.0.0',
-  port: 3006,
-}),
-AuthModule.register({
-  secret: 'qu3Ric0Est4ElCachop025!',
-  signOptions: {
-    expiresIn: '365d'
-  },
-  algorithm: 'HS256',
-  newUserActived: false,
-}),
-EmailerModule.register({
-  jwtController: true || false,
-  sending_Email_Address: 'youremail@email.com',
-  sending_Email_Password: 'yourPasswordEmail',
-  service: 'gmail' || 'hotmail',
-}),
-ExcelModule.register({
-  jwtController: true || false,
-}),
-SftpModule.register({
-  jwtController: true || false,
-  host: 'X.X.X.X',
-  port: 22,
-  username: 'user',
-  password: 'userPassword'
-}),
-PermissionsModule.register({
-  jwtController: true || false,
-}),
-RolesModule.register({
-  jwtController: true || false,
-}),
-UsersModule.register({
-  jwtController: true || false,
-  newUserActived: true,
-}),
-
-/* Always Last Module On Load */
-PopulateModule.register({
-  populate: true,
-})
+sco-backend-fw your-new-proyect
 </pre>
 
-# Ejemplo
-- http://scoapps.es:8000/doc
-- Admin // Admin123456!
-- Public // Public123456!
+## Initial config parameters
 
-# Changelog
-9.1.1/13:
-- Initial versión
+<pre>
+# Websockets
+Do you want to include the Websockets module in the new project? S/N
 
-9.1.14:
-- Delete auth service useless console log
-- Delete http error constants not used
-- Refactor excel módule
-- Add createdAt & updatedAt to permission dto
+Install and prepare websockets configuration for new proyect template
+</pre>
 
-9.1.15:
-- ADD Users role validation
-- ADD Roles permissions validation
-- ADD createdAt & updatedAt to user & role dto
+<pre>
+# Mongodb
+Do you want to include the Mongodb module in the new project? S/N
 
-9.1.16:
-- ADD createdAt & updatedAt properties to iUser, iRole, iPermission
-- ADD createdAt & updatedAt to modelToDto functions in users, roles, permissions
+Install and prepare Mongodb configuration for new proyect template
+</pre>
 
-9.1.17:
-- Fix Websocket external library websocket event notification
+<pre>
+# Shared
+Do you want to include the Shared module in the new project? S/N
 
-9.1.18:
-- Fix Roledto import error of PermissionDto
+Install and prepare Shared module and services for new proyect template
+Includes HttpErrorsService and ValidationErrorsService (Objects and Dto)
+</pre>
 
-9.1.19:
-- UPD names of users, roles & permissions schemas constants
+<pre>
+# Npm library package develop scripts
+Do you want to include the develop library scripts in the new project? S/N
+
+Includes scripts for develop and testing ScoBackendFW library package, usually take N for this option
+</pre>
+
+<pre>
+# Dependencies
+Do you want to install the dependencies of the new project? S/N
+
+Install new proyect node_modules folder dependencies
+</pre>
+
+## Example
+- https://github.com/SCO-SantiComeras/sco-backend-fw-initial
+
+## Support
+
+SCO Backend FW Core is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers.
+
+## Stay in touch
+
+- Author - [Santiago Comeras Oteo](https://santiagocomerasoteo.es)
+
+## License
+
+Sco Backend FW Core is [MIT licensed](LICENSE).
