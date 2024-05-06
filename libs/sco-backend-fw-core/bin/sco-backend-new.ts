@@ -70,7 +70,7 @@ async function main(): Promise<void> {
 
         appModulesLines = [
             ...appModulesLines,
-            ...[41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 24, 10, 9],
+            ...[42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 25, 11, 10],
         ]
 
         fs.unlinkSync(`./${projectDir}/src/configuration/configuration-webSockets.ts`);
@@ -102,7 +102,7 @@ async function main(): Promise<void> {
 
         appModulesLines = [
             ...appModulesLines,
-            ...[42, 26, 14, 13],
+            ...[43, 27, 15, 14],
         ];
 
         fs.unlinkSync(`./${projectDir}/src/configuration/configuration-mongo.ts`);
@@ -129,7 +129,7 @@ async function main(): Promise<void> {
 
         appModulesLines = [
             ...appModulesLines,
-            ...[43, 12],
+            ...[44, 13],
         ];
 
         appServiceFileLines = [
