@@ -62,6 +62,7 @@ async function main(): Promise<void> {
     let httpErrorFileLines: number[] = [];
     let packageFileLines: number[] = [];
     let mongodbServiceFiles: number[] = [];
+    let appServiceFileLines: number[] = [];
 
     /* Websockets options */
     if (wsParam == false) {
@@ -131,6 +132,11 @@ async function main(): Promise<void> {
             ...[43, 12],
         ];
 
+        appServiceFileLines = [
+            ...appServiceFileLines,
+            ...[10, 2],
+        ]
+
         if (mongoParam == true) {
             mongodbServiceFiles = [
                 ...mongodbServiceFiles,
@@ -152,6 +158,7 @@ async function main(): Promise<void> {
     httpErrorFileLines = sortArrayGreaterToMinus(httpErrorFileLines);
     packageFileLines = sortArrayGreaterToMinus(packageFileLines);
     mongodbServiceFiles = sortArrayGreaterToMinus(mongodbServiceFiles);
+    appServiceFileLines = sortArrayGreaterToMinus(appServiceFileLines);
 
     /* Delete Lines */
     if (fs.existsSync(`./${projectDir}/src/app.module.ts`)) {
@@ -191,9 +198,10 @@ async function main(): Promise<void> {
         }
     }
 
-    // If All params are false, no core folder needed
-    if (wsParam == false && mongoParam == false && sharedParam == false) {
-        fs.rmSync(`./${projectDir}/src/core`, { recursive: true, force: true });
+    if (fs.existsSync(`./${projectDir}/src/app.service.ts`)) {
+        for (let i = 0; i < appServiceFileLines.length; i++) {
+            deleteFileLines(`./${projectDir}/src/app.service.ts`, appServiceFileLines[i]);
+        }
     }
 
     /* Get User Add Develop Library Scripts Response */
