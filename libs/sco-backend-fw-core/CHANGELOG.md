@@ -28,3 +28,16 @@ All notable changes to this project will be documented in this file.
     - Refactor IWsNotificator interface default files
  
 ### Fixed
+
+## [10.1.17] - 2024-05-07
+  
+### Update steps
+ 
+### Added
+
+### Changed
+
+### Fixed
+
+- Websockets core service
+    - getEventByKeyConstant function results key and not value
