@@ -1,199 +1,57 @@
-# SCO - Backend
+<p align="center">
+  <img src="https://scoapps.es/img/sco-backend-fw-logo.png" width="400" alt="ScoBackendFw-Logo" />
+</p>
 
-SCO Backend es un framework minimalista basado en Nest.
+<h1><p align="center">Sco Backend FW</p></h1>
 
-<!-- 
-# Instalación
-<pre>
-npm i sco-backend-fw-core
-</pre>
+<p align="center">
+  A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> and <a href="http://nestjs.com" target="_blank">Nest</a> framework for building efficient, scalable and no reload changes server-side applications.
+</p>
 
-# Características principales
+## Description
 
-- Authmodule (Modulo de autentificación de usuarios)
-  - AuthRepository
-  - AuthService
-  - AuthController
-  - AuthConfig
-  - LoginDto
-  - TokenDto
-  - JwtPayload
-  - AuthStrategy
-- Constants
-  - HTTP_ERROR_CONSTANTS
-  - VALIDATION_ERROR_CONSTANTS
-- EmailerModule
-  - EmailerRepository
-  - EmailerService
-  - EmailerController
-  - EmailerControllerJwt
-  - EmailerConfig
-  - MessageDto
-- ExcelModule
-  - ExcelRepository
-  - ExcelService
-  - ExcelController
-  - ExcelControllerJwt
-  - ExcelConfig
-  - ExcelDto
-  - ExcelExtensionEnum
-- LoggerModule (Tratamiento de ficheros de logs)
-  - LoggerService
-- MicroserviceConnectionModule
-  - MicroserviceConnectionService
-  - MicroserviceConnectionConfig
-  - MicroserviceToBackend
-- Middlewares
-  - PublicMiddleware
-- MongoDbModule
-  - MongoDbService
-  - MongoDbConfig
-  - MONGODB_CONSTANTS
-- PaginationModule
-  - PaginationService
-  - PaginationDto
-  - PAGINATION_CONSTANTS
-- PermissionsModule (Permisos de los roles)
-  - PermissionsRepository
-  - PermissionsService
-  - PermissionsController
-  - PermissionsControllerJwt
-  - PermissionsConfig
-  - PERMISSIONS_CONSTANTS
-  - PermissionDto
-  - IPermission
-  - PERMISSIONS_SCHEMA
-- PopulateModule
-  - PopulateService
-  - PopualteConfig
-- RolesModule (Roles de los usuarios)
-  - RolesRepository
-  - RolesService
-  - RolesController
-  - RolesControllerJwt
-  - RolesConfig
-  - ROLES_CONSTANTS
-  - RoleDto
-  - IRole
-  - ROLES_SCHEMA
-- SftpModule
-  - SftpRepository
-  - SftpService
-  - SftpController
-  - SftpControllerJwt
-  - SftpConfig
-  - SftpRequestDto
-- SharedModule
-  - BcryptService
-  - ControllerService
-  - TranslateService
-    - TRANSLATE_CONSTANTS
-- UsersModule
-  - UsersRepository
-  - UsersService
-  - UsersController
-  - UsersControllerJwt
-  - UsersConfig
-  - USERS_CONSTANTS
-  - UserDto
-  - UpdateUserDto
-  - IUser
-  - USERS_SCHEMA
-- WebsocketModule
-  - WebsocketGateway
-  - WebsocketConfig
-  - WebsocketAdapter
-  - WEBSOCKET_EVENTS
+[ScoBackendFw](https://github.com/SCO-SantiComeras/sco-backend-fw) framework TypeScript starter repository.
 
-# Parámetros de configuración
-<pre>
-LoggerModule,
-PaginationModule,
-SharedModule,
-MongoDbModule.register({
-  ip: 'localhost',
-  port: 27017,
-  database: 'sco-backend-fw-core'
-}),
-WebsocketModule.register({
-  port: 8070,
-  origin: 'http://localhost, http://localhost:8070',
-}),
-MicroserviceConnectionModule.register({
-  enabled: false,
-  host: '0.0.0.0',
-  port: 3006,
-}),
-AuthModule.register({
-  secret: 'qu3Ric0Est4ElCachop025!',
-  signOptions: {
-    expiresIn: '365d'
-  },
-  algorithm: 'HS256',
-  newUserActived: false,
-}),
-EmailerModule.register({
-  jwtController: true || false,
-  sending_Email_Address: 'youremail@email.com',
-  sending_Email_Password: 'yourPasswordEmail',
-  service: 'gmail' || 'hotmail',
-}),
-ExcelModule.register({
-  jwtController: true || false,
-}),
-SftpModule.register({
-  jwtController: true || false,
-  host: 'X.X.X.X',
-  port: 22,
-  username: 'user',
-  password: 'userPassword'
-}),
-PermissionsModule.register({
-  jwtController: true || false,
-}),
-RolesModule.register({
-  jwtController: true || false,
-}),
-UsersModule.register({
-  jwtController: true || false,
-  newUserActived: true,
-}),
+## Installation
 
-/* Always Last Module On Load */
-PopulateModule.register({
-  populate: true,
-})
-</pre>
+```bash
+$ npm install
+```
 
-# Ejemplo
-- http://scoapps.es:8000/doc
-- Admin // Admin123456!
-- Public // Public123456!
+## Running the app
 
-# Changelog
-9.1.1/13:
-- Initial versión
+```bash
+# development
+$ npm run start
 
-9.1.14:
-- Delete auth service useless console log
-- Delete http error constants not used
-- Refactor excel módule
-- Add createdAt & updatedAt to permission dto
+# watch mode
+$ npm run start:dev
 
-9.1.15:
-- ADD Users role validation
-- ADD Roles permissions validation
-- ADD createdAt & updatedAt to user & role dto
+# production mode
+$ npm run start:prod
+```
 
-9.1.16:
-- ADD createdAt & updatedAt properties to iUser, iRole, iPermission
-- ADD createdAt & updatedAt to modelToDto functions in users, roles, permissions
+## Test
 
-9.1.17:
-- Fix Websocket external library websocket event notification
+```bash
+# unit tests
+$ npm run test
 
-9.1.18:
-- Fix Roledto import error of PermissionDto
+# e2e tests
+$ npm run test:e2e
 
-9.1.19:
-- UPD names of users, roles & permissions schemas constants -->
+# test coverage
+$ npm run test:cov
+```
+
+## Support
+
+SCO Backend FW is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers.
+
+## Stay in touch
+
+- Author - [Santiago Comeras Oteo](https://santiagocomerasoteo.es)
+
+## License
+
+Sco Backend FW is [MIT licensed](LICENSE).
