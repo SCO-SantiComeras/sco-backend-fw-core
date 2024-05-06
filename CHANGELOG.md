@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
  
 ### Fixed
 
-## [10.1.16] - 2024-05-07
+## [10.1.26] - 2024-05-07
   
 ### Update steps
  
@@ -29,7 +29,7 @@ All notable changes to this project will be documented in this file.
  
 ### Fixed
 
-## [10.1.17] - 2024-05-07
+## [10.1.27] - 2024-05-07
   
 ### Update steps
  
@@ -41,3 +41,18 @@ All notable changes to this project will be documented in this file.
 
 - Websockets core service
     - getEventByKeyConstant function results key and not value
+
+## [10.1.28] - 2024-05-07
+  
+### Update steps
+ 
+### Added
+
+### Changed
+
+- Initial package
+    - Tsconfig build json & development files exclude path help comment
+    - Hello controller remove async
+    - Websocket constants update users key example
+
+### Fixed
